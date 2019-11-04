@@ -9,12 +9,12 @@ global.fetch = require('node-fetch');
 global.navigator = () => null;
 
 // Enter copied or downloaded access ID and secret key here
-const ID = '';
-const SECRET = '';
+const ID = 'AKIAWXR6VQ57OH7FG64V';
+const SECRET = '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';
 const BUCKET_NAME = 'photousers';
 
-const APP_ID_COGNITO ='';
-const USER_POOL_ID ='';
+const APP_ID_COGNITO ='2bu9qbojoklghj9qk2337ratpu';
+const USER_POOL_ID ='us-west-2_P7oACUvuL';
 
 var app = express();
 
@@ -41,7 +41,9 @@ UserRouter.route('/create').post(function (req, res) {
    var data =req.files.imagen.data;
    var nameFile = archivo.name
    
-   uploadFile(nameFile,data);
+  
+
+   uploadFile(nameFile,data,email);
    createUser(email,phone,password);
    res.status(200).send('User added successfully');
 
@@ -85,12 +87,15 @@ const createUser = (email,phone,password) =>{
 
 
 
-const uploadFile = (fileName,fileContent) => {
+const uploadFile = (fileName,fileContent,email) => {
 
     const params = {
         Bucket: BUCKET_NAME,
         Key: fileName,
-        Body: fileContent
+        Body: fileContent,
+        Metadata :{
+            'email': email
+        },
     };
 
 
