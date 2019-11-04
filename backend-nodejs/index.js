@@ -9,11 +9,11 @@ global.fetch = require('node-fetch');
 global.navigator = () => null;
 
 // Enter copied or downloaded access ID and secret key here
-const ID = 'AKIAWXR6VQ57OH7FG64V';
-const SECRET = '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';
+const ID = '';
+const SECRET = '';
 const BUCKET_NAME = 'photousers';
 
-const APP_ID_COGNITO ='2bu9qbojoklghj9qk2337ratpu';
+const APP_ID_COGNITO ='';
 const USER_POOL_ID ='us-west-2_P7oACUvuL';
 
 var app = express();
